@@ -106,6 +106,7 @@ int upper_bound_idx(vi& v, int x) {
 
 
 void solve() {
+    cout<<"hola amigo"<<'\n';
 }
 
 int main() {
@@ -113,7 +114,8 @@ int main() {
     cin.tie(nullptr);
     
     int t;
-    cin >> t; 
+    t=4;
+    //cin >> t; 
     while (t--) {
         solve(); 
     }
