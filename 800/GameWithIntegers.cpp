@@ -106,7 +106,12 @@ int upper_bound_idx(vi& v, int x) {
 
 
 void solve() {
-    cout<<"hola amigo"<<'\n';
+    int inp;
+    cin>>inp;
+    if(inp%3==0)
+        cout<<"Second"<<'\n';
+    else 
+        cout<<"First"<<'\n';
 }
 
 int main() {

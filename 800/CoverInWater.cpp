@@ -104,21 +104,52 @@ int upper_bound_idx(vi& v, int x) {
     return upper_bound(ALL(v), x) - v.begin();
 }
 
+void solve(){
+    int n;
+cin>>n;
+string s;
+cin>>s;
+int empt = 0;
+bool f = true;
 
-void solve() {
-    cout<<"hola amigo"<<'\n';
+for(int i=0; i<n; i++){
+    if(s[i] == '.')empt++;
+    if(i > 0 && i<n-1)
+        if(s[i-1] == '.' && s[i] == '.' && s[i+1] == '.') {
+        cout<<2<<'\n';
+        f = false;
+    }
+}
+if(f)
+    cout<<empt<<'\n';
+}
+
+void solve1() {
+    //unlimited water if you have 3 consecutive dots, very funny
+    //cases- 3 consec dots, 2 consec dots at max, 1 max
+    int n, maxConsecutiveDots=0, totalDots=0;
+    cin>>n;
+    int soln=-10;
+    char input;
+    REP(i, n){
+        cin>>input;
+        if(input='.'){
+            maxConsecutiveDots++;
+            soln =  max(maxConsecutiveDots, soln);
+            totalDots++;
+        }else if(input='#'){
+            maxConsecutiveDots=0;
+        }
+    }
+    if(soln>=3)
+        cout<<2<<'\n';
+    else if(soln<=2)
+        cout<<totalDots<<'\n';
 }
 
 int main() {
     ios::sync_with_stdio(false); 
-    //makes cin, cout faster and desynced with scanf, printf 
-    
-    //cin by default flushes out cout buffer to ensure prompts are immediately displayed
-    //this costs time, if you have a lot of cins and couts
-    //Decoupling by
     cin.tie(nullptr);
-    //prevents auto-flush
-    //you can still flush cout buff if you want to manually by <<endl or <<flsuh
     
     int t;
     cin >> t; 
