@@ -106,7 +106,31 @@ int upper_bound_idx(vi& v, int x) {
 
 
 void solve() {
-    cout<<"hola amigo"<<'\n';
+    int stops, target;
+    cin>>stops>>target;
+    vi fuelPumps(stops);
+    int milesWithoutFuel = 0;
+    int lastStop=0, maxDiff=INT_MIN;
+    for (int i = 0; i < stops; i++)
+        cin>>fuelPumps[i];
+
+    for (int i = 0; i < stops; i++)
+    {
+        milesWithoutFuel = max(milesWithoutFuel, fuelPumps[i]-lastStop);
+        lastStop=fuelPumps[i];
+        // if(i=0){
+        //     maxDiff=fuelPumps[i];
+        // }
+
+        // if(i=(stops-1)){
+        //     lastStop=fuelPumps[i]; 
+        // }
+        // find max diff between two stops
+        // then take max of maxDiffTwoStops and target-lastStop.
+    }
+    maxDiff = max(milesWithoutFuel, 2*(target-lastStop));
+    cout<<maxDiff<<'\n';
+    
 }
 
 int main() {

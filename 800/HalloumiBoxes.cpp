@@ -106,9 +106,7 @@ int upper_bound_idx(vi& v, int x) {
 
 
 void solve() {
-  int t; 
-  cin>>t;
-  while(t--){
+
     int n,k;
     cin>>n>>k;
     vi inarr(n);
@@ -118,7 +116,7 @@ void solve() {
     cout<<"No"<<'/n';
     else
     cout<<"Yes"<<'/n';
-  }
+  
 }
 
 int main() {
