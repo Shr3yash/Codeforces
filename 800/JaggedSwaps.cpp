@@ -106,7 +106,26 @@ int upper_bound_idx(vi& v, int x) {
 
 
 void solve() {
-    cout<<"natural selection."<<'\n';
+//sliding window, four cases, 
+//if mid greater than both, good
+//if mid less than both, bad
+//if mid greater than left, less than right, good
+//if mid less than left, greater than right, bad
+//set flag in while loop's slider, once no swap is performed in any iteration,
+//return after sort checking final answer.
+
+//could have been a little harder but, with the guaranteed 1 in index it became easy :)
+
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    REP(i, n)
+        cin>>arr[i];
+    
+    if(arr[0] != 1){
+        cout<<"No"<<'\n';
+    } else 
+        cout<<"Yes"<<'\n';
 }
 
 int main() {
