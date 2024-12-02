@@ -106,7 +106,59 @@ int upper_bound_idx(vi& v, int x) {
 
 
 void solve() {
-    cout<<"natural selection."<<'\n';
+
+    int n;
+    cin>>n;
+    vi arr(n);
+    for(int i=0; i<n; i++) cin>>arr[i];
+    unordered_map <int, int> um;
+    bool flag=true;
+    FOZ(i, n){
+        um[arr[i]]++;
+        if(um.size() > 2){
+            flag=false;
+            break;
+        }
+    }
+    if(um.size()==2){
+        int freqFirstElem = begin(um)->second;
+        if(freqFirstElem !=n/2 && freqFirstElem!=(n+1)/2)flag=false;
+    }
+    if(flag)cout<<"Yes"<<'\n';
+    else cout<<"no"<<'\n';
+    
+
+    //if total nums odd, keep max
+    //XOR all the input nums, 
+    //if the last num == max, out yes, else no
+    //if total nums even, no need of max
+    //XOR all the input nums,
+    //if last num == 0, out yes, else no
+    /*
+    int totalNums, fin=0, maxVal=INT_MIN;
+    cin>>totalNums;
+
+    FOZ(i, totalNums){
+        int XORBuffer;
+        cin>>XORBuffer;
+        maxVal = max(maxVal, XORBuffer);
+        fin = fin^XORBuffer;
+    }
+    if(totalNums%2 ==  0){
+        if(fin == 0)
+            cout<<"Yes"<<'\n';
+        else
+            cout<<"No"<<'\n';
+    }else if(totalNums ==  2){
+            cout<<"Yes"<<'\n';
+    }else{
+        if(fin == maxVal)
+          cout<<"Yes"<<'\n';
+        else
+            cout<<"No"<<'\n';
+    }
+    */
+
 }
 
 int main() {
