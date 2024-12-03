@@ -109,25 +109,15 @@ void solve() {
     int sz, elem;
     cin >> sz >> elem;
     bool found = false;
-
-    cout << "Looking for " << elem << " in array of size " << sz << ": ";
-
-    for (int i = 0; i < sz; ++i) {
-        int buffer;
-        cin >> buffer;
-        cout << "Checking " << buffer << endl;  
-        if (buffer == elem) {
-            found = true;
-            break;
+    vi arr(sz);
+    FOZ(i, sz){
+        cin>>arr[i];
+        if (arr[i] == elem){
+            found =  true;
         }
     }
-
-    if (!found){
-        cout << "no" << endl;
-        return;}
-    else 
-        {cout << "yes" << endl;
-        return;}
+    if(found)  cout<<"yes"<<'\n';
+    else cout<<"no"<<'\n';
     
 }
 
