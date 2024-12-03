@@ -120,6 +120,11 @@ int main() {
     //prevents auto-flush
     //you can still flush cout buff if you want to manually by <<endl or <<flsuh
     
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+    
     int t;
     cin >> t; 
     while (t--) {
