@@ -107,7 +107,28 @@ int upper_bound_idx(vi& v, int x) {
 
 
 void solve() {
-    cout<<"natural selection."<<'\n';
+    // find two consecutive elems with least diff
+    // return diff + 1
+
+    int n;
+    cin>>n;
+
+    vi sorted(n);
+    int minDiff = INT_MAX;
+    for (int i = 0; i < n; i++) {
+        cin >> sorted[i];
+        
+    }
+    for (int i = 1; i < n; i++) {
+        if(sorted[i] < sorted [i-1]) {
+            cout<<0<<newline;
+            return;
+        }
+        minDiff = min(minDiff, sorted[i] - sorted[i - 1]);
+    }
+    DEBUG(minDiff);
+    cout<<minDiff/2+1<<newline; \
+    // dividing by 2 because the diff will be covered twice the speed as add sub
 }
 
 int main() {

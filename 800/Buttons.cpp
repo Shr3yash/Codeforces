@@ -107,7 +107,26 @@ int upper_bound_idx(vi& v, int x) {
 
 
 void solve() {
-    cout<<"natural selection."<<'\n';
+    //if equal buttons, first
+    //if unbalanced, one with more buttons will finish commons
+    //in easier terms, more buttons, means win
+    //buttons tied, if common buttons are even, second, else first
+    int first, second, common;
+    cin>>first>>second>>common;
+
+    // first>second ? cout<<"first"<<newline : cout<<"second"<<newline;
+    if(first>second){
+        cout<<"First"<<newline;
+    }
+    else if(first==second){
+        if(common%2 == 0)cout<<"Second"<<newline;
+        else cout<<"First"<<newline; 
+    }else{
+        cout<<"Second"<<newline;
+    }
+
+
+
 }
 
 int main() {

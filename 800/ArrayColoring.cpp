@@ -107,7 +107,40 @@ int upper_bound_idx(vi& v, int x) {
 
 
 void solve() {
-    cout<<"natural selection."<<'\n';
+    // divide in two groups such that they have same parity
+    // o+o = e, e+e=e, e+o=o
+    // think input is binary
+    // the arrays will be even by def
+    // if totalOdds odd, no, otherwise ye.
+    int n;
+    cin>>n;
+    vi arr(n);
+    int countOdd = 0;
+
+
+    for(int i = 0; i<n; ++i){
+        cin>>arr[i];
+        if(arr[i]%2!=0) countOdd++;
+        DEBUG(countOdd);
+    }
+
+    if(n==2){
+        // ((arr[0]&&1) ^ (arr[1]&&1)) ? cout<<"Yes"<<newline : cout<<"No"<<newline;
+        if((arr[0] % 2 == 0) && (arr[1]%2 == 0))cout<<"Yes"<<newline;
+        else if((arr[0] % 2 == 1) && (arr[1]%2 == 1))cout<<"Yes"<<newline;
+        else cout<<"No"<<newline;
+        return;
+    }
+
+    DEBUG(countOdd);
+
+    if(countOdd%2 == 0){
+        cout<<"Yes"<<newline;
+    }else{
+        cout<<"No"<<newline;
+    }
+    
+
 }
 
 int main() {

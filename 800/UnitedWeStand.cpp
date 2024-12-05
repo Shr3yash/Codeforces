@@ -29,8 +29,7 @@ const double PI = acos(-1);    // Value of π
 
 // Input and output shortcuts
 #define FAST_IO ios::sync_with_stdio(0); cin.tie(0);
-#define newline '\n'
-#define space " "
+#define endl '\n'
 
 // Debugging tools
 #define DEBUG(x) cerr << #x << " = " << x << endl;
@@ -107,7 +106,67 @@ int upper_bound_idx(vi& v, int x) {
 
 
 void solve() {
-    cout<<"natural selection."<<'\n';
+    //elements in c should not be factors of elements in b
+    // we can directly put larger elements in c and smaller in b 
+
+    int n;
+    cin>>n;
+
+    vi originalArray(n);
+    for(int i=0; i<n; ++i){
+        cin>>originalArray[i];
+    }
+    map <int, int> ordmp;
+    for(auto i: originalArray)
+        ordmp[i]++;
+
+    //all identical
+    if(ordmp.size() == 1) cout<<"-1"<<'\n';
+    else{
+        int firstElem = begin(ordmp)->first;
+        int freqFirstElem = begin(ordmp)->second;
+
+        cout<<freqFirstElem<<" "<<n-freqFirstElem<<'\n';
+        //printing sizes
+
+        for( int i =0; i<freqFirstElem; ++i){
+            cout<<firstElem<<" ";
+        }
+        //printed b
+        cout<<'\n';
+
+        ordmp.erase(firstElem);
+        // for( auto [elem, freq]: ordmp){
+        for (auto it = ordmp.begin(); it != ordmp.end(); ++it) {
+            int elem = it->first;
+            int freq = it->second;
+            for (int i = 0; i < freq; ++i) {
+                cout << elem << " ";
+            }
+        }
+        cout<<'\n';
+    }
+
+
+    /*
+
+    vi b, c;
+    for(int i = 0; i<n; ++i){
+        for(int j = 0; i<n; ++j){
+            if(originalArray[j]%originalArray[i] != 0){
+                c.push_back(originalArray[i]);
+            }else{
+                b.push_back(originalArray[i]);
+            }
+        }
+    }
+    cout<<b.size()<<" "<<c.size()<<'\n';
+    for(auto itr : b){
+        cout<<itr<<" ";
+    }
+    cout<<'\n';
+    */
+
 }
 
 int main() {
@@ -125,7 +184,7 @@ int main() {
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
     #endif
-
+    
     int t;
     cin >> t; 
     while (t--) {
