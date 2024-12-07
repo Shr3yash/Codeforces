@@ -108,7 +108,46 @@ int upper_bound_idx(vi& v, int x) {
 
 
 void solve() {
-    cout<<"natural selection."<<'\n';
+    // cout<<"natural selection."<<'\n';
+    // count -1s and 1s, add and get -x, return x
+    // if count -1s odd, return x+1 
+    int n, countNeg = 0, countPos=0, ops = 0;
+    cin>>n;
+    
+    for(int i=0; i<n; ++i) {
+        int buffer;
+        cin>> buffer;   
+        if(buffer == -1) countNeg++;
+        else countPos++;
+    }
+    DEBUG(countNeg);
+    DEBUG(countPos);
+
+     while (!((countPos - countNeg) >= 0 && countNeg % 2 == 0))
+    {
+        countNeg--;
+        countPos++;
+        ops++;
+    }
+
+    cout << ops << newline;
+    //if sum is negative, it's the count of overhead negs.
+    //if num of overhead negs is even, product=1 case done and 
+    //for other num of overhead negs/2 coz we will get 0
+    //if num of overhead negs is odd, add 1 to final as we will be replacing only 1 neg
+    //for other, num of overhead negs/2 coz we will get 0
+    /*if(sum >= 0 && product == 1){
+        cout<<0<<newline;
+    }else if(sum < 0 && product ==1){
+        cout<<abs(sum)/2<<newline;
+    } 
+    else if(sum>=0 && product == -1){
+            cout<<1<<newline;
+    }
+    else if(sum<0 && product == -1){
+        cout<<abs(sum)+1<<newline;
+    }*/
+    
 }
 
 int main() {

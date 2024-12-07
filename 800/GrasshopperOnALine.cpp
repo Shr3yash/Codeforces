@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#include <cmath>
 using namespace std;
 
 // Typedefs for convenience
@@ -108,7 +107,18 @@ int upper_bound_idx(vi& v, int x) {
 
 
 void solve() {
-    cout<<"natural selection."<<'\n';
+    // cout<<"natural selection."<<'\n';
+    int toHop, undivisibleBy;
+    cin>>toHop>>undivisibleBy;
+
+    if(toHop%undivisibleBy != 0){
+        cout<<"1"<<newline;
+        cout<<toHop<<newline;
+    }
+    else{
+        cout<<"2"<<newline;
+        cout<<toHop-1<<" "<<"1"<<newline;
+    }
 }
 
 int main() {
