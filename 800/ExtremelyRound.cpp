@@ -46,7 +46,6 @@ const double PI = acos(-1);    // Value of π
 int countDigits(int inpNum) {
     return inpNum == 0 ? 1 : static_cast<int>(log10(abs(inpNum)) + 1);
 }
-
 template<typename T>
 T gcd(T a, T b) { return b == 0 ? a : gcd(b, a % b); } // GCD
 template<typename T>
@@ -112,7 +111,20 @@ int upper_bound_idx(vi& v, int x) {
 
 
 void solve() {
-    cout<<"natural selection."<<'\n';
+    // cout<<"natural selection."<<'\n';
+    // so simple, yet you took so long.
+    int n, digits, roundInts;
+    cin>>n;
+    digits = countDigits(n);
+    roundInts = (digits-1)*9;
+    while (n >= 10) {
+        n /= 10;
+    }
+    roundInts+=n;
+    cout<<roundInts<<newline;
+
+
+
 }
 
 int main() {

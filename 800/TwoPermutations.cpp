@@ -112,7 +112,16 @@ int upper_bound_idx(vi& v, int x) {
 
 
 void solve() {
-    cout<<"natural selection."<<'\n';
+    // cout<<"natural selection."<<'\n';
+    int n, a, b;
+    cin>>n>>a>>b;
+
+    // if(2>=(n-a) && 2>=(n-b)) cout<<"Yes"<<newline;
+    if(a+b>=n-1) {
+        if(a==n && b==n) cout<<"Yes"<<newline;
+        else cout<<"No"<<newline;
+    }
+    else cout<<"Yes"<<newline;
 }
 
 int main() {

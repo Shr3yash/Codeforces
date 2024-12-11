@@ -43,10 +43,6 @@ const double PI = acos(-1);    // Value of π
 #define CHECKBIT(x, pos) ((x >> pos) & 1LL)            // Check bit at position pos
 
 // Utility functions
-int countDigits(int inpNum) {
-    return inpNum == 0 ? 1 : static_cast<int>(log10(abs(inpNum)) + 1);
-}
-
 template<typename T>
 T gcd(T a, T b) { return b == 0 ? a : gcd(b, a % b); } // GCD
 template<typename T>
@@ -112,7 +108,28 @@ int upper_bound_idx(vi& v, int x) {
 
 
 void solve() {
-    cout<<"natural selection."<<'\n';
+    // cout<<"natural selection."<<'\n';
+    int n, count = 0;
+    cin>>n;
+    vi ary(n);
+    FOZ(i, n){
+        cin>>ary[i];
+        if((i>0) && ary[i-1]%2==ary[i]%2) count++;
+    }
+    cout<<count<<newline;
+
+    /*
+    int n, count = 0, prev;
+    FOZ(i, n){
+        int buffer;
+        cin>>buffer;
+        if(i == 0) prev = buffer;
+        if(i>0 && (prev%2 == buffer%2)) count++;
+        prev = buffer;
+    }
+    cout<<count<<newline;
+    */
+
 }
 
 int main() {
