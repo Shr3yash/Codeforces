@@ -108,7 +108,51 @@ int upper_bound_idx(vi& v, int x) {
 
 
 void solve() {
-    cout<<"natural selection."<<'\n';
+    // cout<<"natural selection."<<'\n';
+    int n, sum=0;
+    cin>>n;
+    vi ary(n);
+    FOZ(i, n) cin>>ary[i];
+    sort(ary.rbegin(), ary.rend());
+    if(ary[0] == ary.back()){
+        cout<<"NO"<<newline;
+    }else{
+        cout<<"YES"<<newline;
+        cout<<ary.back()<<" ";
+        for(int i = 0; i<n-1; ++i){
+            cout<<ary[i]<<" ";
+        }
+        cout<<newline;
+    }
+    /*
+    int n, sum=0;
+    cin>>n;
+    vi ary(n), presum(n+1);
+    bool identical = true;
+
+    FOZ(i, n){
+        cin>>ary[i];
+        sum+=ary[i];
+        presum[i+1] = sum;
+        if(i>0 && ary[i] != ary[i-1]) identical = false;
+    }
+    FOR(i, 1, n){
+        if(presum[i]==ary[i]){
+            ary[i] = ary[i]^ary[i-1];
+            ary[i-1] = ary[i]^ary[i-1];;
+            ary[i] = ary[i]^ary[i-1];
+        }
+    }
+    if(identical){
+        cout<<"NO"<<newline;
+        return;
+    }
+    cout<<"YES"<<newline;
+    for(auto itr:ary){
+        cout<<itr<<" ";
+    }
+    cout<<newline;
+    */
 }
 
 int main() {

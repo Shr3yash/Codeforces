@@ -35,7 +35,7 @@ const double PI = acos(-1);    // Value of π
 
 // Debugging tools
 #define DEBUG(x) cerr << #x << " = " << x << endl;
-
+// make one for square
 // Bit manipulation
 #define SETBIT(x, pos) (x |= (1LL << pos))             // Set bit at position pos
 #define CLEARBIT(x, pos) (x &= ~(1LL << pos))          // Clear bit at position pos
