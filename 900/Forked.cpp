@@ -141,7 +141,6 @@ void solve() {
         if(setQ.find(itr) !=  setQ.end()) totalPositions++;
     }
     cout<<totalPositions<<newline;
-
 }
 
 int main() {
