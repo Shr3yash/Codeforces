@@ -113,38 +113,27 @@ int upper_bound_idx(vi& v, int x) {
 
 void solve() {
     // cout<<"natural selection."<<'\n';
-    int n, allowedDiff, longestSequence = 0;
-    cin>>n>>allowedDiff;
+    // count the < and >
+    int n, globalMax=1, count = 1;
+    cin>>n;
 
-    vi ary(n);
-    for(int i = 0; i<n; ++i){
-        cin>>ary[i];
-    }
-    sort(ary.begin(), ary.end());
-    int localMax = 1;
-    if(n==1){
-        cout<<0<<newline;
-        return;
-    } else if(n == 2){
-        if(ary[1] - ary[0] <= allowedDiff) {
-            cout<<1<<newline;
-            return;
-        }else{
-            cout<<0<<newline;
-            return;
-        }
-    }
+    string s;
+    cin>>s;
 
-    for(int i = 1; i<n; ++i){
-        if(ary[i] - ary[i-1] <= allowedDiff) {
-            localMax++;
-        }else{
-            longestSequence = max(longestSequence, localMax);
-            localMax = 1;
-        }
+    for (int i = 1; i<n; ++i){
+        if(s[i] == s[i-1]) count++;
+        else count = 1;
+        //finding the longest similar subsequence
+        globalMax =  max(globalMax, count);
     }
-    longestSequence = max(longestSequence, localMax);
-    cout<<n-longestSequence<<newline;
+    cout<<globalMax + 1<<newline;
+    // for(auto itr: s){
+    //     if(itr == '>'){
+    //         plus++;
+    //     }else minus++;
+    // }
+    // cout<<ans + abs(plus-minus)<<newline;
+
 }
 
 int main() {
@@ -171,4 +160,3 @@ int main() {
 
     return 0;
 }
-
