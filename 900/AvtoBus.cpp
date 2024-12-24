@@ -73,7 +73,6 @@ bool cmp_desc(int a, int b) { return a > b; }          // Descending order
 bool cmp_pair_first_desc(pii a, pii b) { return a.first > b.first; } // Pair comparator
 
 // Useful functions
-int parity(ll x) {return x%2 == 0 ? 1:0;}
 ll mod_add(ll a, ll b, ll m = MOD) { return (a + b) % m; }
 ll mod_sub(ll a, ll b, ll m = MOD) { return (a - b + m) % m; }
 ll mod_mul(ll a, ll b, ll m = MOD) { return (a * b) % m; }
@@ -111,9 +110,37 @@ int upper_bound_idx(vi& v, int x) {
     return upper_bound(ALL(v), x) - v.begin();
 }
 
+bool parity(ll x) {return x%2 == 0;}
 
 void solve() {
-    cout<<"natural selection."<<'\n';
+    // cout<<"natural selection."<<'\n';
+    ll n;
+    cin>>n;
+    
+    // if(n%6 == 0 && n%4 == 0){
+    //     cout<<n/6<<space<<n/4<<newline;
+    // }else if(n%6 == 0 && n%4 != 0){
+    //     cout<<n/6<<space<<n/6<<newline;
+    // }else if(n%4 == 0 && n%6 != 0){
+    //     cout<<n/4<<space<<n/4<<newline;
+    // }else{
+    //     cout<<-1<<newline;
+    // }
+
+    //missed the case where the 
+    //num is not div by 4 or 6 completely but the remaiing num divides other num completely
+
+    if(!parity(n)) {
+        cout<<-1<<newline;
+        return;
+    }
+    n =  n/2;
+    
+    if(n == 1){
+        cout<<-1<<newline;
+    }else{
+        cout<<(n/3 + (n%3 != 0 ?1:0))<<space<<n/2<<newline;
+    }
 }
 
 int main() {
