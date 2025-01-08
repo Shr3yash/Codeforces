@@ -112,79 +112,37 @@ int upper_bound_idx(vi& v, int x) {
 }
 
 
-void solvedWithUnorderedWhichGaveTLE() {
+void solve() {
     // cout<<"natural selection."<<'\n';
-    int n, moves = 0;
-    cin>>n;
-
-    unordered_map <int, int> hashMap;
-    for(int i = 0; i<n; ++i){
-        int buffer;
-        cin>>buffer;
-
-        hashMap[buffer]++;
-    }
-    int maxFreq = -1;
-    for(auto itr: hashMap){
-        maxFreq = max(maxFreq, itr.second);
-        DEBUG(itr.second);
-    }
-
-    if(n==1){
-        cout<<0<<newline;
-        return;
-    }
-
-    while(maxFreq<n){
-        moves++; //clone spell
-
-        if(n-maxFreq >= maxFreq){ 
-            moves += maxFreq;
-            maxFreq *= 2; //you swapped from dupe ary
-        } 
-        else{
-            //if we have 3,3,3,3,3,2,1
-            moves += n-maxFreq;
-            maxFreq = n;
-        }
-    }
-    cout<<moves<<newline;
-}
-
-void solve(){
+    // a, a+d, a+2d
     
-    ll n;
-    cin >> n;
 
-    map<int, int> freq;
-    for (int i = 0; i < n; ++i) {
-        int x;
-        cin >> x;
-        freq[x]++;
-    }
-
-    int maxFreq = 0;
-
-
-    // If all elements are already equal
-    for (auto it = freq.begin(); it != freq.end(); ++it) {
-        maxFreq = max(maxFreq, it->second);
-    }   
-
-    int moves = 0;
-    while (maxFreq < n) {
-        moves++;  // Cloning operation
-        if (maxFreq * 2 <= n) {
-            moves += maxFreq;  // Swaps required to double `maxFreq`
-            maxFreq *= 2;
-        } else {
-            moves += (n - maxFreq);  // Last step when `maxFreq` reaches `n`
-            maxFreq = n;
-        }
-    }
-
-    cout << moves << '\n';
+    // x, y, z  
+    // if you multiply - 
+    // z: AP(x,y=x+d), y: AP(x,z=x+2d), x: AP(y,z=y+d)
+    // k.z = y+d = x+2d 
+    // int xy = x-y, xz = x-z, yz = y-z;
+    ll a,b,c;
+cin>>a>>b>>c;
+bool yes = false;
+if((2*b-c)%a == 0)
+if( (2*b-c)/a> 0) {
+yes = true;
 }
+if ((c+a)%(2*b) == 0) {
+yes = true;
+}
+if((2*b-a)%c == 0) {
+if ((2*b-a)/c > 0) {
+yes = true;
+}
+}
+if(a == b && b==c) yes = true;
+if (yes) cout<<"Yes"<<newline;
+else cout<<"No"<<newline;
+    
+}
+
 int main() {
     ios::sync_with_stdio(false); 
     //makes cin, cout faster and desynced with scanf, printf 
