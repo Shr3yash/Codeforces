@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve() {
+    int n, k;
+    cin >> n >> k;
+
+    vector<int> arr(n);
+    int minOps = INT_MAX; // Minimum ops
+    int e_cnt = 0; 
+    int remFreq[k] = {0}; // Rem freq array
+
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+        int rem = arr[i] % k;
+
+        if (rem == 0) {
+            cout << 0 << '\n';
+            return; 
+        }
+
+        remFreq[rem]++;
+        if (rem % 2 == 0) e_cnt++;
+    }
+
+    if (k == 4) {
+        if (e_cnt >= 2) {
+            cout << 0 << '\n';
+        } else if (e_cnt == 1) {
+            cout << 1 << '\n';
+        } else {
+            cout << 2 << '\n';
+        }
+        return;
+    }
+
+    
+    for (int i = 1; i < k; ++i) {
+        if (remFreq[i] > 0) {
+            minOps = min(minOps, k - i);
+        }
+    }
+
+    cout << minOps << '\n';
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+
+    return 0;
+}
