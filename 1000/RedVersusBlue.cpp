@@ -111,15 +111,14 @@ int upper_bound_idx(vi& v, int x) {
     return upper_bound(ALL(v), x) - v.begin();
 }
 
-
 void solve() {
     // cout<<"natural selection."<<'\n';
     int n, r, b;
     cin>>n>>r>>b;
 
-    b++;
-    int streak = r/b, //base number of streaks
-    extra = r%b, //number of streaks that will have one extra R
+    b;
+    int streak = r/(b+1), //base number of streaks
+    extra = r%(b+1), //number of streaks that will have one extra R
     countdown = streak;
     DEBUG(streak);
 
